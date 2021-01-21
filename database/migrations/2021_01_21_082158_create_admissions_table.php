@@ -15,6 +15,18 @@ class CreateAdmissionsTable extends Migration
     {
         Schema::create('admissions', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('admission_type');
+            $table->dateTime('date_started');
+            $table->dateTime('date_ended');
+            $table->integer('patient_id');
+            $table->string('room');
+            $table->string('ward');
+            $table->string('referring_doctor');
+            $table->string('scan_indication');
+            $table->string('gp_code');
+            $table->string('lmp');
+            $table->string('pmp');
+            $table->string('menstrual_age');
             $table->timestamps();
         });
     }

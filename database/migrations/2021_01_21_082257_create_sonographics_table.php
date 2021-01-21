@@ -15,6 +15,17 @@ class CreateSonographicsTable extends Migration
     {
         Schema::create('sonographics', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('admission_id');
+            $table->string('scan');
+            $table->string('cervix');
+            $table->string('uterine');
+            $table->string('endometrium');
+            $table->string('right_ovary');
+            $table->string('right_follicles');
+            $table->string('left_ovary');
+            $table->string('left_follicles');
+            $table->string('findings');
+            $table->string('findings');
             $table->timestamps();
         });
     }
