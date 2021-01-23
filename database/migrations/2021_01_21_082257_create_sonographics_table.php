@@ -25,7 +25,7 @@ class CreateSonographicsTable extends Migration
             $table->string('left_ovary');
             $table->string('left_follicles');
             $table->string('findings');
-            $table->string('findings');
+            $table->text('remarks');
             $table->timestamps();
         });
     }
