@@ -15,4 +15,6 @@ Route::get('/login','LoginController@login')->name('login');
 Route::post('/login','LoginController@validateLogin');
 Route::group(['middleware' => 'auth'], function(){
     Route::get('/','HomeController@index');
+
+    Route::get('/greetings','ConfigController@greetings');
 });
