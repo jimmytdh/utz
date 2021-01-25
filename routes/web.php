@@ -14,7 +14,23 @@ Route::get('/logout','LoginController@logout');
 Route::get('/login','LoginController@login')->name('login');
 Route::post('/login','LoginController@validateLogin');
 Route::group(['middleware' => 'auth'], function(){
+    //Home
     Route::get('/','HomeController@index');
 
+    //Patients
+    Route::get('/patients','PatientController@index');
+    Route::post('/patient/store','PatientController@store');
+    Route::post('/patient/update','PatientController@update');
+    Route::post('/patient/destroy','PatientController@destroy');
+
+    //Worksheets
+    Route::get('/patient/earlypregnancy/{id}','EarlyPregnancyController@index');
+    Route::get('/patient/sonographicfindings/{id}','SonographicController@index');
+    Route::get('/patient/trimister/{id}','Trimister@index');
+
+    //Schedule
+    Route::get('/schedule','ScheduleController@index');
+
+    //Configs
     Route::get('/greetings','ConfigController@greetings');
 });

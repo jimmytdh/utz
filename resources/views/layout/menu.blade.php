@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-        <a class="navbar-brand navbar-web" href="#">Ultrasound Information and Scheduling System</a>
+        <a class="navbar-brand navbar-web" href="#"><font class="text-warning">Ultrasound</font> Information and Scheduling System</a>
         <a class="navbar-brand navbar-mobile" href="#">UTZPISS</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -10,10 +10,10 @@
                 <li class="nav-item {{ request()->is('/') ? 'active' : '' }}">
                     <a class="nav-link" href="{{ url('/') }}"><i class="fa fa-home"></i> Home</a>
                 </li>
-                <li class="nav-item {{ request()->is('/patients') ? 'active' : '' }}">
+                <li class="nav-item {{ request()->is('patients') ? 'active' : '' }}">
                     <a class="nav-link" href="{{ url('/patients') }}"><i class="fa fa-users"></i> Patients</a>
                 </li>
-                <li class="nav-item {{ request()->is('/schedule') ? 'active' : '' }}">
+                <li class="nav-item {{ request()->is('schedule') ? 'active' : '' }}">
                     <a class="nav-link" href="{{ url('/schedule') }}"><i class="fa fa-calendar"></i> Schedule</a>
                 </li>
                 <li class="nav-item">

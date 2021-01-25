@@ -7,8 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="Jimmy Parker">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="icon" href="{{ url('/') }}/images/favicon.png" sizes="16x16" type="image/png">
-    <title>Talisay District Hospital Template</title>
+    <title>@yield('title','Ultrasound Information and Scheduling System')</title>
     <!-- Custom styles for this template -->
     <link href="{{ url('/') }}/css/bootstrap.css" rel="stylesheet">
     <link href="{{ url('/') }}/css/font-awesome.css" rel="stylesheet">
