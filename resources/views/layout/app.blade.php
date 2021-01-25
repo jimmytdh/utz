@@ -52,6 +52,13 @@
 <!-- Bootstrap core JavaScript -->
 <script src="{{ url('/js/jquery.min.js') }}"></script>
 <script src="{{ url('/js/bootstrap.bundle.min.js') }}"></script>
+<script>
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN' : $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+</script>
 @yield('js')
 </body>
 

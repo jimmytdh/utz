@@ -112,12 +112,6 @@
         $(document).ready(function() {
             $('input').attr('autocomplete','off');
             $('#patientForm').smart_format();
-
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN' : $('meta[name="csrf-token"]').attr('content')
-                }
-            });
             $('#dataTable').DataTable({
                 processing: true,
                 serverSide: true,

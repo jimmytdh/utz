@@ -28,6 +28,9 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/patient/sonographicfindings/{id}','SonographicController@index');
     Route::get('/patient/trimister/{id}','Trimister@index');
 
+    //early pregnancy
+    Route::post('/patient/earlypregnancy/{id}','EarlyPregnancyController@store');
+
     //Schedule
     Route::get('/schedule','ScheduleController@index');
 

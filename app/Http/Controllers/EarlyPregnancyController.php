@@ -12,4 +12,9 @@ class EarlyPregnancyController extends Controller
         $data = Patient::find($id);
         return view('sheet.earlyPregnancy', compact('data'));
     }
+
+    public function store(Request $req)
+    {
+        return $req;
+    }
 }

@@ -13,7 +13,7 @@
                     <p>Fill all form field to go to next step</p>
                     <div class="row">
                         <div class="col-md-12 mx-0">
-                            <form id="msform">
+                            <form id="msform" method="post" action="javascript:void(0)">
                                 <!-- progressbar -->
                                 <ul id="progressbar">
                                     <li class="active" id="account"><strong>Admission</strong></li>
@@ -196,17 +196,25 @@
                                             <label>Remarks:</label>
                                             <textarea class="form-control" rows="4" style="resize: none;"></textarea>
                                         </div>
-                                    </div> <input type="button" name="previous" class="previous action-button-previous" value="Previous" /> <input type="button" name="" class="next action-button" value="Confirm" />
+                                    </div> <input type="button" name="previous" class="previous action-button-previous" value="Previous" /> <input type="submit" name="" id="btnSubmit" class="next action-button" value="Confirm" />
                                 </fieldset>
                                 <fieldset>
                                     <div class="form-card">
-                                        <h2 class="fs-title text-center">Success !</h2> <br><br>
-
-                                        <div class="row justify-content-center">
-                                            <div class="col-7 text-center">
-                                                <h5>Successfully Saved</h5>
+                                        <div class="text-center saving">
+                                            <i class="fa fa-spin fa-spinner"></i> Please wait... Saving Data...
+                                        </div>
+                                        <div class="success" style="display: none;">
+                                            <h2 class="fs-title text-center">Success !</h2> <br><br>
+                                            <div class="row justify-content-center">
+                                                <div class="col-3"> <img src="{{ url("/images/check.png") }}" class="fit-image"> </div>
+                                            </div> <br><br>
+                                            <div class="row justify-content-center">
+                                                <div class="col-7 text-center">
+                                                    <h5>Successfully Saved</h5>
+                                                </div>
                                             </div>
                                         </div>
+
                                     </div>
                                 </fieldset>
                             </form>
@@ -220,4 +228,31 @@
 
 @section('js')
     <script src="{{ url('/js/step.js') }}"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('#msform').submit(function(e){
+                e.preventDefault();
+
+                var formData = new FormData(this);
+                $.ajax({
+                    type: "POST",
+                    url: "{{ url('patient/earlypregnancy/'.$data->id) }}",
+                    data: formData,
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    success: (data) => {
+                        console.log(data);
+                        setTimeout(function(){
+                            $('.saving').css('display','none');
+                            $('.success').css('display','block');
+                        },2000);
+                    },
+                    error: function(data){
+                        console.log(data);
+                    }
+                });
+            });
+        });
+    </script>
 @endsection
