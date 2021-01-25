@@ -204,13 +204,15 @@
                                             <i class="fa fa-spin fa-spinner"></i> Please wait... Saving Data...
                                         </div>
                                         <div class="success" style="display: none;">
-                                            <h2 class="fs-title text-center">Success !</h2> <br><br>
+                                            <h2 class="fs-title text-center">Successfully Saved!</h2> <br><br>
                                             <div class="row justify-content-center">
                                                 <div class="col-3"> <img src="{{ url("/images/check.png") }}" class="fit-image"> </div>
                                             </div> <br><br>
                                             <div class="row justify-content-center">
                                                 <div class="col-7 text-center">
-                                                    <h5>Successfully Saved</h5>
+                                                    <a href="{{ url('/patient/history/'.$data->id) }}" class="btn btn-warning">
+                                                        <i class="fa fa-book"></i> View Patient History
+                                                    </a>
                                                 </div>
                                             </div>
                                         </div>
