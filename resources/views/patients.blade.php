@@ -2,6 +2,9 @@
 
 @section('css')
     <link href="{{ url('/plugins/DataTables/datatables.min.css') }}" rel="stylesheet">
+    <style>
+        .btn-circle { border-radius: 50%; }
+    </style>
 @endsection
 @section('content')
     <h2 class="title-header">Patients</h2>
@@ -13,6 +16,7 @@
             <th>Full Name</th>
             <th>Date of Birth</th>
             <th>Age</th>
+            <th>Action</th>
         </tr>
         </thead>
         <tbody>
@@ -25,6 +29,7 @@
             <th>Full Name</th>
             <th>Date of Birth</th>
             <th>Age</th>
+            <th>Action</th>
         </tr>
         </tfoot>
     </table>
@@ -117,11 +122,12 @@
                 serverSide: true,
                 ajax: "{{ url('/patients') }}",
                 columns: [
-                    { data: 'action', name: 'action', orderable: false},
+                    { data: 'admission_no', name: 'admission_no'},
                     { data: 'hospital_no', name: 'hospital_no'},
                     { data: 'full_name', name: 'full_name'},
                     { data: 'dob', name: 'dob'},
                     { data: 'age', name: 'age'},
+                    { data: 'action', name: 'action'},
                 ],
                 order: [[0, 'desc']],
                 dom: 'Bfrtip',

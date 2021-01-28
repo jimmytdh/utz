@@ -16,17 +16,18 @@ class CreateAdmissionsTable extends Migration
         Schema::create('admissions', function (Blueprint $table) {
             $table->increments('id');
             $table->string('admission_type');
-            $table->dateTime('date_started');
-            $table->dateTime('date_ended');
+            $table->dateTime('date_started')->nullable();
+            $table->dateTime('date_ended')->nullable();
             $table->integer('patient_id');
-            $table->string('room');
-            $table->string('ward');
-            $table->string('referring_doctor');
-            $table->string('scan_indication');
-            $table->string('gp_code');
-            $table->string('lmp');
-            $table->string('pmp');
-            $table->string('menstrual_age');
+            $table->string('room')->nullable();
+            $table->string('ward')->nullable();
+            $table->string('referring_doctor')->nullable();
+            $table->string('scan_indication')->nullable();
+            $table->string('gp_code')->nullable();
+            $table->string('lmp')->nullable();
+            $table->string('pmp')->nullable();
+            $table->string('menstrual_age')->nullable();
+            $table->string('sheet')->nullable();
             $table->timestamps();
         });
     }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class ConfigController extends Controller
@@ -18,5 +19,10 @@ class ConfigController extends Controller
         }else if($time>='18:01' && $time<='23:59'){
             return 'Good Evening';
         }
+    }
+
+    static function age($date)
+    {
+        return Carbon::parse($date)->diff(Carbon::now())->format('%y');
     }
 }

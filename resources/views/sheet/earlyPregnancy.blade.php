@@ -9,11 +9,13 @@
         <div class="row justify-content-center mt-0">
             <div class="col-11 col-sm-9 col-md-7 col-lg-6 text-center p-0 mt-3 mb-2">
                 <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
-                    <h2><strong>{{ $data->fname }} {{ $data->mname }} {{ $data->lname }}</strong></h2>
+                    <h2><strong>{{ $data->fname }} {{ $data->mname }} {{ $data->lname }} <small class="text-danger">({{ \App\Http\Controllers\ConfigController::age($data->dob) }}y/o)</small></strong></h2>
                     <p>Fill all form field to go to next step</p>
                     <div class="row">
                         <div class="col-md-12 mx-0">
                             <form id="msform" method="post" action="javascript:void(0)">
+                                {{ csrf_field() }}
+                                <input type="hidden" name="patient_id" value="{{ $data->id }}">
                                 <!-- progressbar -->
                                 <ul id="progressbar">
                                     <li class="active" id="account"><strong>Admission</strong></li>
@@ -30,6 +32,10 @@
                                                 <option value="opd">Out-Patient</option>
                                                 <option value="in">In-Patient</option>
                                             </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Date:</label>
+                                            <input type="date" class="form-control-sm" name="date"value="{{ date('Y-m-d') }}" >
                                         </div>
                                         <div class="form-row">
                                             <div class="form-group col-sm-6">
@@ -196,6 +202,14 @@
                                             <label>Remarks:</label>
                                             <textarea class="form-control" rows="4" style="resize: none;"></textarea>
                                         </div>
+                                        <div class="form-group">
+                                            <label>OB-GYN Sonologist</label>
+                                            <select name="ob_doctor" id="" class="form-control">
+                                                @foreach($doctors as $doc)
+                                                <option value="{{ $doc->id }}">Dr. {{ $doc->fname }} {{ ($doc->mname) ? $doc->mname[0]: '' }}. {{ $doc->lname }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
                                     </div> <input type="button" name="previous" class="previous action-button-previous" value="Previous" /> <input type="submit" name="" id="btnSubmit" class="next action-button" value="Confirm" />
                                 </fieldset>
                                 <fieldset>
@@ -216,7 +230,6 @@
                                                 </div>
                                             </div>
                                         </div>
-
                                     </div>
                                 </fieldset>
                             </form>
@@ -233,8 +246,7 @@
     <script type="text/javascript">
         $(document).ready(function(){
             $('#msform').submit(function(e){
-                e.preventDefault();
-
+                // e.preventDefault();
                 var formData = new FormData(this);
                 $.ajax({
                     type: "POST",
