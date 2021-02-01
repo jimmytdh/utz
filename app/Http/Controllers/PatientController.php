@@ -52,7 +52,7 @@ class PatientController extends Controller
                 })
                 ->addColumn('action', function($row){
                     $url = url('/patient/history/'.$row->id);
-                    $btn = "<a class='btn btn-primary btn-sm btn-circle' href='#formModal' data-toggle='modal' id='btnAdmit' data-id='$row->id'><i class='fa fa-plus'></i></a>";
+                    $btn = "<a class='btn btn-primary btn-sm btn-circle' href='#formModal' data-toggle='modal' id='btnAdmit' data-id='$row->id'><i class='fa fa-wheelchair'></i></a>";
                     $btn .= " <a class='btn btn-warning btn-sm btn-circle' href='$url'><i class='fa fa-book'></i></a>";
                     $btn .= " <a class='btn btn-success btn-sm btn-circle' href='javascript:void(0)' onclick='editFunc($row->id)'><i class='fa fa-edit'></i></a>";
                     $btn .= " <a class='btn btn-danger btn-sm btn-circle' href='javascript:void(0)' onclick='deleteFunc($row->id)'><i class='fa fa-trash'></i></a>";

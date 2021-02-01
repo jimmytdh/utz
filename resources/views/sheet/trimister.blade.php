@@ -65,20 +65,22 @@
                                             <label>Indication for Scan:</label>
                                             <input type="text" class="form-control-sm" name="scan_indication">
                                         </div>
-                                        <div class="form-group">
-                                            <label>GP:</label>
-                                            <input type="text" class="form-control-sm" name="gp_code">
-                                        </div>
                                         <div class="form-row">
-                                            <div class="form-group col-sm-4">
+                                            <div class="form-group col-sm-6">
+                                                <label>GP:</label>
+                                                <input type="text" class="form-control-sm" name="gp_code">
+                                            </div>
+                                            <div class="form-group col-sm-6">
                                                 <label>LMP:</label>
                                                 <input type="text" class="form-control-sm" name="lmp">
                                             </div>
-                                            <div class="form-group col-sm-4">
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-group col-sm-6">
                                                 <label>PMP:</label>
                                                 <input type="text" class="form-control-sm" name="pmp">
                                             </div>
-                                            <div class="form-group col-sm-4">
+                                            <div class="form-group col-sm-6">
                                                 <label>Menstrual Age:</label>
                                                 <input type="text" class="form-control-sm" name="menstrual_age">
                                             </div>
@@ -87,103 +89,101 @@
                                 </fieldset>
                                 <fieldset>
                                     <div class="form-card">
+                                        <div class="form-group">
+                                            <label>Number of Fetus</label>
+                                            <select class="form-control" name="fetus_no">
+                                                <option>Singleton</option>
+                                                <option>Multiple</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Presentation</label>
+                                            <input type="text" name="presentation" class="form-control">
+                                        </div>
                                         <div class="form-row">
                                             <div class="form-group col-sm-6">
-                                                <label>Scan</label>
-                                                <select class="form-control" name="scan_type">
-                                                    <option>Transvaginal</option>
-                                                    <option>Transabdominal</option>
-                                                </select>
+                                                <label>Heart Activity</label>
+                                                <input type="text" name="heart_activity" class="form-control">
                                             </div>
                                             <div class="form-group col-sm-6">
-                                                <label>Gestational Sac Visualised</label>
-                                                <select class="form-control" name="gestational_sac">
-                                                    <option value="Y">Yes</option>
-                                                    <option value="N">No</option>
+                                                <label>Gender</label>
+                                                <select class="form-control" name="gender">
+                                                    <option value="g">Girl</option>
+                                                    <option value="b">Boy</option>
                                                 </select>
                                             </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Biometry</label>
+                                            <input type="text" name="biometry" class="form-control">
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-group col-sm-6">
+                                                <label>BPD</label>
+                                                <input type="text" name="bpd" class="form-control">
+                                            </div>
+                                            <div class="form-group col-sm-6">
+                                                <label>HC</label>
+                                                <input type="text" name="hc" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-group col-sm-6">
+                                                <label>FL</label>
+                                                <input type="text" name="fl" class="form-control">
+                                            </div>
+                                            <div class="form-group col-sm-6">
+                                                <label>FAC</label>
+                                                <input type="text" name="fac" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-group col-sm-6">
+                                                <label>SEFW</label>
+                                                <input type="text" name="sefw" class="form-control">
+                                            </div>
+                                            <div class="form-group col-sm-6">
+                                                <label>Others</label>
+                                                <input type="text" name="others" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Age of Gestation Based on Today's Scan</label>
+                                            <input type="text" name="gestation_age" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>AMNIOTIC FLUID</label>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-group col-sm-6">
+                                                <label>AFI</label>
+                                                <input type="text" name="afi" class="form-control">
+                                            </div>
+                                            <div class="form-group col-sm-6">
+                                                <label>Single Vertical Pocket</label>
+                                                <input type="text" name="single_vertical" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>PLACENTA</label>
                                         </div>
                                         <div class="form-row">
                                             <div class="form-group col-sm-6">
                                                 <label>Location</label>
-                                                <select class="form-control" name="location">
-                                                    <option>Intrauterine</option>
-                                                    <option>Extrauterine</option>
-                                                </select>
+                                                <input type="text" name="location" class="form-control">
                                             </div>
                                             <div class="form-group col-sm-6">
-                                                <label>Borders</label>
-                                                <select class="form-control" name="borders">
-                                                    <option>Thick and Well-Defined</option>
-                                                    <option>Abnormal</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="form-row">
-                                            <div class="form-group col-sm-6">
-                                                <label>Mean Sac Diameter</label>
-                                                <select class="form-control" name="mean_sac">
-                                                    <option>Present</option>
-                                                    <option>Absent</option>
-                                                </select>
-                                            </div>
-                                            <div class="form-group col-sm-6">
-
+                                                <label>Grade</label>
+                                                <input type="text" name="grade" class="form-control">
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label>Yolk Sac</label>
-                                            <input type="text" name="yolk_sac" class="form-control">
+                                            <label>Abnormality</label>
+                                            <input type="text" name="abnormality" class="form-control">
                                         </div>
                                         <div class="form-group">
-                                            <label>Subchorionic Hemorrhage</label>
-                                            <input type="text" name="subchrionic" class="form-control">
-                                        </div>
-                                        <div class="form-row">
-                                            <div class="form-group col-sm-6">
-                                                <label>Fetus Recognized</label>
-                                                <select class="form-control" name="fetus">
-                                                    <option>Yes</option>
-                                                    <option>No</option>
-                                                </select>
-                                            </div>
-                                            <div class="form-group col-sm-6">
-                                                <label>Number</label>
-                                                <input type="number" value="1" min="1" class="form-control" name="number">
-                                            </div>
-                                        </div>
-                                        <div class="form-row">
-                                            <div class="form-group col-sm-6">
-                                                <label>Well Formed</label>
-                                                <select class="form-control" name="well_formed">
-                                                    <option value="Y">Yes</option>
-                                                    <option value="N">No</option>
-                                                </select>
-                                            </div>
-                                            <div class="form-group col-sm-6">
-                                                <label>Heart Motion</label>
-                                                <select class="form-control" name="heart_motion">
-                                                    <option value="Y">Yes</option>
-                                                    <option value="N">No</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="form-row">
-                                            <div class="form-group col-sm-6">
-                                                <label>Body Movement</label>
-                                                <select class="form-control" name="body_movement">
-                                                    <option value="Y">Yes</option>
-                                                    <option value="N">No</option>
-                                                </select>
-                                            </div>
-                                            <div class="form-group col-sm-6">
-                                                <label>CRL</label>
-                                                <input type="text" name="crl" class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Age of Gestation Based on Today's Scan:</label>
-                                            <input type="text" class="form-control" name="gestational_age">
+                                            <label>Cord Vessels</label>
+                                            <input type="text" name="cord_vessels" class="form-control">
                                         </div>
                                     </div> <input type="button" name="previous" class="previous action-button-previous" value="Previous" /> <input type="button" name="next" class="next action-button" value="Next Step" />
                                 </fieldset>
@@ -206,7 +206,7 @@
                                             <label>OB-GYN Sonologist</label>
                                             <select name="ob_doctor" id="" class="form-control">
                                                 @foreach($doctors as $doc)
-                                                <option value="{{ $doc->id }}">Dr. {{ $doc->fname }} {{ ($doc->mname) ? $doc->mname[0]: '' }}. {{ $doc->lname }}</option>
+                                                    <option value="{{ $doc->id }}">Dr. {{ $doc->fname }} {{ ($doc->mname) ? $doc->mname[0]: '' }}. {{ $doc->lname }}</option>
                                                 @endforeach
                                             </select>
                                         </div>

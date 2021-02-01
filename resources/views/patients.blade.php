@@ -100,8 +100,8 @@
                         <a href="#" class="btn btn-lg btn-info btn-block" id="linkSonographicFindings">
                             Sonographic Findings Worksheet
                         </a>
-                        <a href="#" class="btn btn-lg btn-warning btn-block" id="linkSecondThirdTrimister">
-                            Second and Third Trimister
+                        <a href="#" class="btn btn-lg btn-warning btn-block" id="linkSecondThirdTrimester">
+                            Second and Third Trimester Worksheet
                         </a>
                     </div>
                 </div>
@@ -215,7 +215,7 @@
             var id = $(this).data('id');
             $('#linkEarlyPregnancy').attr('href',"{{ url('/patient/earlypregnancy/') }}/"+id);
             $('#linkSonographicFindings').attr('href',"{{ url('/patient/sonographicfindings/') }}/"+id);
-            $('#linkSecondThirdTrimister').attr('href',"{{ url('/patient/trimister/') }}/"+id);
+            $('#linkSecondThirdTrimester').attr('href',"{{ url('/patient/trimester/') }}/"+id);
         });
     </script>
 @endsection

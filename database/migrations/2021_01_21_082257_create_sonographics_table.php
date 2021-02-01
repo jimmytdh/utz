@@ -26,6 +26,7 @@ class CreateSonographicsTable extends Migration
             $table->string('left_follicles');
             $table->string('findings');
             $table->text('remarks');
+            $table->integer('ob_doctor')->nullable();
             $table->timestamps();
         });
     }
