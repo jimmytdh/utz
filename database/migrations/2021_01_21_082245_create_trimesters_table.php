@@ -27,6 +27,7 @@ class CreateTrimestersTable extends Migration
             $table->string('fac');
             $table->string('sefw');
             $table->string('others');
+            $table->string('gestation_age');
             $table->string('afi');
             $table->string('single_vertical');
             $table->string('location');

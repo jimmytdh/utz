@@ -1,10 +1,10 @@
 @extends('layout.app')
-@section('title','Early Pregnancy Worksheet')
+@section('title','Sonographic Findings Worksheet')
 @section('css')
     <link rel="stylesheet" href="{{ url('/css/step.css') }}">
 @endsection
 @section('content')
-    <h2 class="title-header">Early Pregnancy Worksheet</h2>
+    <h2 class="title-header">Sonographic Findings Worksheet</h2>
     <div class="container-fluid" id="grad1">
         <div class="row justify-content-center mt-0">
             <div class="col-11 col-sm-9 col-md-7 col-lg-6 text-center p-0 mt-3 mb-2">
@@ -47,6 +47,10 @@
                                                 <input type="time" class="form-control-sm" name="date_ended">
                                             </div>
                                         </div>
+                                        <div class="form-group">
+                                            <label>GP:</label>
+                                            <input type="text" class="form-control-sm" name="gp_code">
+                                        </div>
                                         <div class="form-row">
                                             <div class="form-group col-sm-6">
                                                 <label>Room/Bed No.:</label>
@@ -65,138 +69,59 @@
                                             <label>Indication for Scan:</label>
                                             <input type="text" class="form-control-sm" name="scan_indication">
                                         </div>
-                                        <div class="form-group">
-                                            <label>GP:</label>
-                                            <input type="text" class="form-control-sm" name="gp_code">
-                                        </div>
-                                        <div class="form-row">
-                                            <div class="form-group col-sm-4">
-                                                <label>LMP:</label>
-                                                <input type="text" class="form-control-sm" name="lmp">
-                                            </div>
-                                            <div class="form-group col-sm-4">
-                                                <label>PMP:</label>
-                                                <input type="text" class="form-control-sm" name="pmp">
-                                            </div>
-                                            <div class="form-group col-sm-4">
-                                                <label>Menstrual Age:</label>
-                                                <input type="text" class="form-control-sm" name="menstrual_age">
-                                            </div>
-                                        </div>
+
                                     </div> <input type="button" name="next" class="next action-button" value="Next Step" />
                                 </fieldset>
                                 <fieldset>
                                     <div class="form-card">
-                                        <div class="form-row">
-                                            <div class="form-group col-sm-6">
-                                                <label>Scan</label>
-                                                <select class="form-control" name="scan_type">
-                                                    <option>Transvaginal</option>
-                                                    <option>Transabdominal</option>
-                                                </select>
-                                            </div>
-                                            <div class="form-group col-sm-6">
-                                                <label>Gestational Sac Visualised</label>
-                                                <select class="form-control" name="gestational_sac">
-                                                    <option value="Y">Yes</option>
-                                                    <option value="N">No</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="form-row">
-                                            <div class="form-group col-sm-6">
-                                                <label>Location</label>
-                                                <select class="form-control" name="location">
-                                                    <option>Intrauterine</option>
-                                                    <option>Extrauterine</option>
-                                                </select>
-                                            </div>
-                                            <div class="form-group col-sm-6">
-                                                <label>Borders</label>
-                                                <select class="form-control" name="borders">
-                                                    <option>Thick and Well-Defined</option>
-                                                    <option>Abnormal</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="form-row">
-                                            <div class="form-group col-sm-6">
-                                                <label>Mean Sac Diameter</label>
-                                                <select class="form-control" name="mean_sac">
-                                                    <option>Present</option>
-                                                    <option>Absent</option>
-                                                </select>
-                                            </div>
-                                            <div class="form-group col-sm-6">
-
-                                            </div>
+                                        <div class="form-group">
+                                            <label>Scan</label>
+                                            <select class="form-control" name="scan">
+                                                <option>Transrectal</option>
+                                                <option>Transvaginal</option>
+                                                <option>SIS</option>
+                                                <option>Transabdominal</option>
+                                            </select>
                                         </div>
                                         <div class="form-group">
-                                            <label>Yolk Sac</label>
-                                            <input type="text" name="yolk_sac" class="form-control">
+                                            <label>Cervix: </label>
+                                            <input type="text" name="cervix" class="form-control">
                                         </div>
                                         <div class="form-group">
-                                            <label>Subchorionic Hemorrhage</label>
-                                            <input type="text" name="subchrionic" class="form-control">
-                                        </div>
-                                        <div class="form-row">
-                                            <div class="form-group col-sm-6">
-                                                <label>Fetus Recognized</label>
-                                                <select class="form-control" name="fetus">
-                                                    <option>Yes</option>
-                                                    <option>No</option>
-                                                </select>
-                                            </div>
-                                            <div class="form-group col-sm-6">
-                                                <label>Number</label>
-                                                <input type="number" value="1" min="1" class="form-control" name="number">
-                                            </div>
-                                        </div>
-                                        <div class="form-row">
-                                            <div class="form-group col-sm-6">
-                                                <label>Well Formed</label>
-                                                <select class="form-control" name="well_formed">
-                                                    <option value="Y">Yes</option>
-                                                    <option value="N">No</option>
-                                                </select>
-                                            </div>
-                                            <div class="form-group col-sm-6">
-                                                <label>Heart Motion</label>
-                                                <select class="form-control" name="heart_motion">
-                                                    <option value="Y">Yes</option>
-                                                    <option value="N">No</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="form-row">
-                                            <div class="form-group col-sm-6">
-                                                <label>Body Movement</label>
-                                                <select class="form-control" name="body_movement">
-                                                    <option value="Y">Yes</option>
-                                                    <option value="N">No</option>
-                                                </select>
-                                            </div>
-                                            <div class="form-group col-sm-6">
-                                                <label>CRL</label>
-                                                <input type="text" name="crl" class="form-control">
-                                            </div>
+                                            <label>Uterine Corpus: </label>
+                                            <input type="text" name="uterine" class="form-control">
                                         </div>
                                         <div class="form-group">
-                                            <label>Age of Gestation Based on Today's Scan:</label>
-                                            <input type="text" class="form-control" name="gestational_age">
+                                            <label>Endometrium: </label>
+                                            <input type="text" name="endometrium" class="form-control">
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-group col-sm-6">
+                                                <label>Right Ovary:</label>
+                                                <input type="text" name="right_ovary" class="form-control">
+                                            </div>
+                                            <div class="form-group col-sm-6">
+                                                <label><em>Follicles:</em></label>
+                                                <input type="text" name="right_follicles" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-group col-sm-6">
+                                                <label>Left Ovary:</label>
+                                                <input type="text" name="left_ovary" class="form-control">
+                                            </div>
+                                            <div class="form-group col-sm-6">
+                                                <label><em>Follicles:</em></label>
+                                                <input type="text" name="left_follicles" class="form-control">
+                                            </div>
                                         </div>
                                     </div> <input type="button" name="previous" class="previous action-button-previous" value="Previous" /> <input type="button" name="next" class="next action-button" value="Next Step" />
                                 </fieldset>
                                 <fieldset>
                                     <div class="form-card">
-                                        <h2 class="fs-title">Other Findings</h2>
                                         <div class="form-group">
-                                            <label>Right Ovary:</label>
-                                            <input type="text" class="form-control" name="right_ovary">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Left Ovary:</label>
-                                            <input type="text" class="form-control" name="left_ovary">
+                                            <label>Other Findings:</label>
+                                            <input type="text" class="form-control" name="findings">
                                         </div>
                                         <div class="form-group">
                                             <label>Remarks:</label>
@@ -206,7 +131,7 @@
                                             <label>OB-GYN Sonologist</label>
                                             <select name="ob_doctor" id="" class="form-control">
                                                 @foreach($doctors as $doc)
-                                                <option value="{{ $doc->id }}">Dr. {{ $doc->fname }} {{ ($doc->mname) ? $doc->mname[0]: '' }}. {{ $doc->lname }}</option>
+                                                    <option value="{{ $doc->id }}">Dr. {{ $doc->fname }} {{ ($doc->mname) ? $doc->mname[0]: '' }}. {{ $doc->lname }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -264,7 +189,7 @@
                 var formData = new FormData(this);
                 $.ajax({
                     type: "POST",
-                    url: "{{ url('patient/earlypregnancy/'.$data->id) }}",
+                    url: "{{ url('patient/sonographicfindings/'.$data->id) }}",
                     data: formData,
                     cache: false,
                     contentType: false,

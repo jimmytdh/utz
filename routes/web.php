@@ -26,13 +26,20 @@ Route::group(['middleware' => 'auth'], function(){
     //Worksheets
     Route::get('/patient/earlypregnancy/{id}','EarlyPregnancyController@index');
     Route::get('/patient/sonographicfindings/{id}','SonographicController@index');
-    Route::get('/patient/trimister/{id}','Trimister@index');
+    Route::get('/patient/trimester/{id}','TrimesterController@index');
 
     //early pregnancy
     Route::post('/patient/earlypregnancy/{id}','EarlyPregnancyController@store');
 
+    //sonographic findings
+    Route::post('/patient/sonographicfindings/{id}','SonographicController@store');
+
+    //2nd and 3rd trimister
+
+
     //history
     Route::get('/patient/history/{id}','HistoryController@index');
+    Route::get('/patient/history/{id}/{admission_id}/{admission_type}','HistoryController@show');
 
     //Schedule
     Route::get('/schedule','ScheduleController@index');
