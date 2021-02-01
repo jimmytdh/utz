@@ -20,10 +20,11 @@ class EarlyPregnancyController extends Controller
 
     public function store(Request $req)
     {
+
         $admission = array(
             'admission_type' => $req->admission_type,
-            'date_started' => date('Y-m-d')." ".$req->date_started,
-            'date_ended' => date('Y-m-d')." ".$req->date_ended,
+            'date_started' => $req->date." ".$req->date_started,
+            'date_ended' => $req->date." ".$req->date_ended,
             'patient_id' => $req->patient_id,
             'room' => $req->room,
             'ward' => $req->ward,
