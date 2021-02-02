@@ -20,6 +20,7 @@ class EarlyPregnancyController extends Controller
 
     public function store(Request $req)
     {
+
         $admission = array(
             'admission_type' => $req->admission_type,
             'date_started' => $req->date." ".$req->date_started,
