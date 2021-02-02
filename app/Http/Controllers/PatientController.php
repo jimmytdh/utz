@@ -92,4 +92,19 @@ class PatientController extends Controller
         $patient = Patient::where('id',$req->id)->delete();
         return Response()->json($patient);
     }
+
+    public function updateX(Request $req)
+    {
+        Patient::find($req->pk)
+            ->update([
+                $req->name => $req->value
+            ]);
+
+        if($req->name=='dob'){
+            $age = ConfigController::age($req->value);
+            return $age;
+        }
+
+        return 'success';
+    }
 }

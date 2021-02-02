@@ -2,21 +2,24 @@
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ $patient->fname }} {{ $patient->mname }} {{ $patient->lname }}</title>
+    <link rel="stylesheet" href="{{ asset('/plugins/bootstrap-editable/css/bootstrap-editable.css') }}">
+    <link rel="stylesheet" href="{{ asset('/plugins/bootstrap-editable/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('/plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css') }}">
+{{--    <link href="{{ url('/') }}/css/bootstrap.css" rel="stylesheet">--}}
+    <link href="{{ url('/') }}/css/font-awesome.css" rel="stylesheet">
     <style>
-        html {
-            background: #a4a4a4;
-            font-size: 12px;
-            font-family: Arial;
-        }
         body {
+            background: #a4a4a4 !important;
+            font-size: 12px !important;
+            font-family: Arial;
             position: relative;
         }
         #print {
             background: #fff;
             width: 793px;
-            /*height: 1122px;*/
-            height: 1110px;
+            height: 1100px;
             border: 1px solid #ccc;
             margin: 0px auto;
             text-transform: uppercase;
@@ -62,13 +65,18 @@
         .doh { right: 20px;}
         .csmc { left: 20px; }
         .ob { left: 110px; }
+        .editable { cursor: pointer; }
         table { width: 100%; }
         @media print {
+
             body * {
-                visibility: hidden;
+                visibility: hidden !important;
             }
             #print  * {
-                visibility: visible;
+                visibility: visible !important;
+            }
+            .editable {
+                border-bottom: 1px solid #000;
             }
         }
     </style>
@@ -88,7 +96,7 @@
     </div>
 
     <div class="wrapper">
-        <table width="100%">
+        <table>
             <tr>
                 <td width="25%">
                     <label>
@@ -115,39 +123,45 @@
         <br>
         <table width="100%">
             <tr>
-                <td width="30%">time started: <span>{{ date('h:i A',strtotime($adm->date_started)) }}</span></td>
-                <td width="30%">time ended: <span>{{ date('h:i A',strtotime($adm->date_ended)) }}</span></td>
-                <td width="40%">date: <span>{{ date('M d, Y',strtotime($adm->date_started)) }}</span></td>
+                <td width="30%">time started: <span id="date_started" data-type="combodate" data-title="Select Time" data-value="{{ date('h:i A',strtotime($adm->date_started)) }}">{{ date('h:i A',strtotime($adm->date_started)) }}</span></td>
+                <td width="30%">time ended: <span id="date_ended" data-type="combodate" data-title="Select Time" data-value="{{ date('h:i A',strtotime($adm->date_ended)) }}">{{ date('h:i A',strtotime($adm->date_ended)) }}</span></td>
+                <td width="40%">date: <span id="date" data-value="{{ date('M d, Y',strtotime($adm->date_started)) }}" data-type="date" data-title="Date of Visit">{{ date('M d, Y',strtotime($adm->date_started)) }}</span></td>
             </tr>
             <tr>
-                <td colspan="2">hospital no.: <span>{{ $patient->hospital_no }}</span></td>
-                <td>date of birth: <span>{{ date('M d, Y',strtotime($patient->dob)) }}</span></td>
+                <td colspan="2">hospital no.: <span id="hospital_no" data-title="Enter Hospital No.">{{ $patient->hospital_no }}</span></td>
+                <td>date of birth: <span id="dob" data-value="{{ $patient->dob }}" data-type="date" data-title="Date of Birth">{{ date('M d, Y',strtotime($patient->dob)) }}</span></td>
             </tr>
             <tr>
                 <td colspan="2">admission no.: <span>{{ date('Y') }}-{{ str_pad($adm->id,4,0,STR_PAD_LEFT) }}</span></td>
-                <td>age: <span>{{ \App\Http\Controllers\ConfigController::age($patient->dob) }}</span></td>
+                <td>age: <span id="age">{{ \App\Http\Controllers\ConfigController::age($patient->dob) }}</span></td>
             </tr>
             <tr>
-                <td colspan="2">patient name: <span>{{ $patient->fname }} {{ $patient->mname }} {{ $patient->lname }}</span></td>
-                <td>room/bed no.: <span>{{ $adm->room }}</span></td>
+                <td colspan="2">patient name:
+                    <span>
+                        <span id="fname" data-type="text" data-value="{{ $patient->fname }}" data-title="Enter First Name">{{ $patient->fname }}</span>
+                        <span id="mname" data-type="text" data-value="{{ $patient->mname }}" data-title="Enter Middle Name">{{ $patient->mname }}</span>
+                        <span id="lname" data-type="text" data-value="{{ $patient->lname }}" data-title="Enter Last Name">{{ $patient->lname }}</span>
+                    </span>
+                </td>
+                <td>room/bed no.: <span id="room" data-value="{{ $adm->room }}" data-title="Enter Room No.">{{ $adm->room }}</span></td>
             </tr>
             <tr>
-                <td colspan="3">ward: <span>{{ $adm->ward }}</span></td>
+                <td colspan="3">ward: <span id="ward" data-value="{{ $adm->ward }}" data-title="Enter Ward">{{ $adm->ward }}</span></td>
             </tr>
             <tr>
-                <td colspan="3">referring physician: <span>{{ $adm->referring_doctor }}</span></td>
+                <td colspan="3">referring physician: <span id="referring_doctor" data-value="{{ $adm->referring_doctor }}" data-title="Enter Referring Physician">{{ $adm->referring_doctor }}</span></td>
             </tr>
             <tr>
-                <td colspan="3">indication for scan: <span>{{ $adm->scan_indication }}</span></td>
+                <td colspan="3">indication for scan: <span id="scan_indication" data-value="{{ $adm->scan_indication }}" data-title="Enter Indication for Scan">{{ $adm->scan_indication }}</span></td>
             </tr>
             <tr>
                 <?php
                     $g = substr($adm->gp_code,0,1);
                     $p = substr($adm->gp_code,-1);
                 ?>
-                <td>G: {{ $g }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;P: {{ $p }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ( {{ $adm->gp_code }} )</td>
-                <td>lmp: <span>{{ $adm->lmp }}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pmp: <span>{{ $adm->pmp }}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                <td>menstrual age: <span>{{ $adm->menstrual_age }}</span></td>
+                <td>G: <span id="g">{{ $g }}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;P: <span id="p">{{ $p }}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ( <span id="gp_code" data-value="{{ $adm->gp_code }}" data-title="GP">{{ $adm->gp_code }}</span> )</td>
+                <td>lmp: <span id="lmp" data-value="{{ $adm->lmp }}" data-title="Enter LMP">{{ $adm->lmp }}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pmp: <span id="pmp" data-value="{{ $adm->pmp }}" data-title="Enter PMP">{{ $adm->pmp }}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                <td>menstrual age: <span id="menstrual_age" data-value="{{ $adm->menstrual_age }}" data-title="Enter Menstrual Age">{{ $adm->menstrual_age }}</span></td>
             </tr>
         </table>
         <hr>
@@ -358,11 +372,20 @@
             <div class="b-border" style="text-align: center">Dr. {{ $doc->fname }} {{ $doc->mname }} {{ $doc->lname }}</div>
             ob-gyn sonologist <small style="text-transform: none;"><em>(Signature over Printed Name)</em></small>
         </div>
-        <div style="clear: both"></div>
+        <div style="clear: both;"></div>
         <div class="footer">
             NOTE: This report is based on Ultrasonographic findings and should be correlated clinically and with laboratory results.
         </div>
+
     </div>
 </div>
+<script src="{{ asset('/js/jquery.min.js') }}"></script>
+<script src="{{ url('/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ asset('/plugins/moment/moment.min.js') }}"></script>
+<script src="{{ asset('/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js') }}"></script>
+<script src="{{ asset('/plugins/bootstrap-editable/js/bootstrap-editable.js') }}"></script>
+@include('xeditable.patients')
+@include('xeditable.admission')
 </body>
+
 </html>

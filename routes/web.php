@@ -44,6 +44,10 @@ Route::group(['middleware' => 'auth'], function(){
     //Schedule
     Route::get('/schedule','ScheduleController@index');
 
+    // x-editable
+    Route::post('/patients/update/x/','PatientController@updateX')->name('update.patient');
+    Route::post('/admission/update/x/','AdmissionController@updateX')->name('update.admission');
+
     //Configs
     Route::get('/greetings','ConfigController@greetings');
 });
