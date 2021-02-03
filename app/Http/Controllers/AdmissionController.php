@@ -3,11 +3,34 @@
 namespace App\Http\Controllers;
 
 use App\Admission;
+use App\EarlyPregnancy;
+use App\Sonographic;
+use App\Trimester;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class AdmissionController extends Controller
 {
+    static function store($id,$sheet)
+    {
+        $admission = array(
+            'admission_type' => 'early_pregnancy',
+            'date_started' => Carbon::now(),
+            'date_ended' => Carbon::now(),
+            'patient_id' => $id,
+            'room' => '',
+            'ward' => '',
+            'referring_doctor' => '',
+            'scan_indication' => '',
+            'gp_code' => '0-0-0-0',
+            'lmp' => '',
+            'pmp' => '',
+            'menstrual_age' => '',
+            'sheet' => $sheet
+        );
+        $adm = Admission::create($admission);
+        return $adm->id;
+    }
     public function updateX(Request $req)
     {
         $adm = Admission::find($req->pk);
@@ -48,6 +71,13 @@ class AdmissionController extends Controller
                 $req->name => $req->value
             ]);
         }
-        return $req;
+    }
+
+    public function destroy(Request $req)
+    {
+        Admission::find($req->admID)->delete();
+        EarlyPregnancy::where('admission_id',$req->admID)->delete();
+        Sonographic::where('admission_id',$req->admID)->delete();
+        Trimester::where('admission_id',$req->admID)->delete();
     }
 }

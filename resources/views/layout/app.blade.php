@@ -14,6 +14,7 @@
     <link href="{{ url('/') }}/css/bootstrap.css" rel="stylesheet">
     <link href="{{ url('/') }}/css/font-awesome.css" rel="stylesheet">
     <link href="{{ url('/') }}/css/style.css" rel="stylesheet">
+    <link href="{{ url('/') }}/css/loader.css" rel="stylesheet">
     @yield('css')
 </head>
 

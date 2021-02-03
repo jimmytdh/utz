@@ -28,14 +28,19 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/patient/sonographicfindings/{id}','SonographicController@index');
     Route::get('/patient/trimester/{id}','TrimesterController@index');
 
+    //admission
+    Route::post('/admission/destroy','AdmissionController@destroy')->name('delete.admission');
+
     //early pregnancy
+    Route::get('/patient/earlypregnancy/{id}','EarlyPregnancyController@store')->name('add.earlyPregnancy');
     Route::post('/patient/earlypregnancy/{id}','EarlyPregnancyController@store');
 
     //sonographic findings
+    Route::get('/patient/sonographicfindings/{id}','SonographicController@store')->name('add.sonographic');
     Route::post('/patient/sonographicfindings/{id}','SonographicController@store');
 
     //2nd and 3rd trimister
-
+    Route::get('/patient/trimester/{id}','TrimesterController@store')->name('add.trimester');
 
     //history
     Route::get('/patient/history/{id}','HistoryController@index');
@@ -47,6 +52,9 @@ Route::group(['middleware' => 'auth'], function(){
     // x-editable
     Route::post('/patients/update/x/','PatientController@updateX')->name('update.patient');
     Route::post('/admission/update/x/','AdmissionController@updateX')->name('update.admission');
+    Route::post('/earlypregnancy/update/x/','EarlyPregnancyController@updateX')->name('update.earlyPregnancy');
+    Route::post('/sonographics/update/x/','SonographicController@updateX')->name('update.sonographics');
+    Route::post('/trimester/update/x/','TrimesterController@updateX')->name('update.trimester');
 
     //Configs
     Route::get('/greetings','ConfigController@greetings');

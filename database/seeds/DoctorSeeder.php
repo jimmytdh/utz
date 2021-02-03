@@ -17,5 +17,11 @@ class DoctorSeeder extends Seeder
                 'mname' => '',
                 'lname' => 'Lariego'
             ]);
+        DB::table('doctors')
+            ->insert([
+                'fname' => 'Aubrey',
+                'mname' => 'Santos',
+                'lname' => 'Miles'
+            ]);
     }
 }

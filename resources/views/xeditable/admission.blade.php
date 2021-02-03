@@ -20,7 +20,7 @@
         format: 'yyyy-mm-dd',
         viewformat: 'M dd, yyyy',
         datepicker: {
-            weekStart: 1
+            weekStart: 0
         }
     });
 
@@ -30,13 +30,15 @@
         type: 'text',
         validate: function(value) {
             if ($.isNumeric(value) == '') return 'Only numbers are allowed';
-        }
+        },
+        emptytext: 'N/A'
     });
 
     $('#ward, #referring_doctor, #scan_indication, #pmp, #lmp, #menstrual_age').editable({
         url: admUrl,
         pk: admID,
-        type: 'text'
+        type: 'text',
+        emptytext: 'N/A'
     });
 
     $('#gp_code').editable({
@@ -46,6 +48,24 @@
         success: function(res){
             $('#g').html(res.g);
             $('#p').html(res.p);
-        }
+        },
+        emptytext: 'N/A'
     });
+
+    function deleteRecord(admID)
+    {
+        var c = confirm('Are you sure you want to delete this record?');
+        if(c){
+            $.ajax({
+                url: "{{ route('delete.admission') }}",
+                type: "POST",
+                data: {
+                    admID: admID
+                },
+                success: function(){
+                    window.location.replace("{{ url('patient/history/'.$patient->id) }}");
+                }
+            });
+        }
+    }
 </script>

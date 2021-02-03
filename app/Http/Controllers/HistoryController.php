@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Admission;
+use App\Doctor;
 use App\EarlyPregnancy;
 use App\Patient;
 use App\Sonographic;
+use App\Trimester;
 use Illuminate\Http\Request;
 
 class HistoryController extends Controller
@@ -23,13 +25,17 @@ class HistoryController extends Controller
     {
         $patient = Patient::find($id);
         $adm = Admission::find($admission_id);
+        $doctors = Doctor::orderBy('fname','asc')->get();
         $view = null;
         if($admission_type=='early_pregnancy'){
             $early = EarlyPregnancy::where('admission_id',$admission_id)->first();
-            return view('print.earlyPregnancy',compact('patient','adm','early'));
+            return view('print.earlyPregnancy',compact('patient','adm','early','doctors'));
         }else if($admission_type=='sonographics'){
             $sono = Sonographic::where('admission_id',$admission_id)->first();
-            return view('print.sonographicFindings',compact('patient','adm','sono'));
+            return view('print.sonographicFindings',compact('patient','adm','sono','doctors'));
+        }else if($admission_type=='trimester'){
+            $tri = Trimester::where('admission_id',$admission_id)->first();
+            return view('print.trimester',compact('patient','adm','tri','doctors'));
         }
 
 

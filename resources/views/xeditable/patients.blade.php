@@ -26,7 +26,7 @@
         format: 'yyyy-mm-dd',
         viewformat: 'M dd, yyyy',
         datepicker: {
-            weekStart: 1
+            weekStart: 0
         },
         success: function(age){
             $('#age').html(age);
