@@ -388,7 +388,7 @@
             ?>
             <div class="b-border" style="text-align: center">
                 <span id="ob_doctor" data-type="select" data-title="Select OB-GYN Sonologist" data-value="{{ $early->ob_doctor }}">
-                    @if($early->ob_doctor)
+                    @if($early->ob_doctor && $doc)
                     Dr. {{ $doc->fname }} {{ $doc->mname }} {{ $doc->lname }}
                     @endif
                 </span>
