@@ -38,8 +38,8 @@ class HomeController extends Controller
         $start = Carbon::now()->startOfDay();
         $end = Carbon::now()->endOfDay();
 
-        $count = Schedule::where('start_date','<=',Carbon::now())
-                    ->where('end_date','>=',Carbon::now())
+        $count = Schedule::where('start_date','>=',Carbon::now()->startOfDay())
+                    ->where('end_date','<=',Carbon::now()->endOfDay())
                     ->count();
         return $count;
     }

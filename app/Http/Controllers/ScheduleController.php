@@ -63,7 +63,7 @@ class ScheduleController extends Controller
         $start = $req->start;
         $end = $req->end;
         if(!$req->end){
-            $end = $start;
+            $end = Carbon::parse($start)->endOfDay();
         }
         $data = array(
             'title' => $req->title,
