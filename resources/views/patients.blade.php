@@ -1,5 +1,5 @@
 @extends('layout.app')
-
+@section('title','Patients')
 @section('css')
     <link href="{{ url('/plugins/DataTables/datatables.min.css') }}" rel="stylesheet">
     <style>

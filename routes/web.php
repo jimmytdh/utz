@@ -16,6 +16,7 @@ Route::post('/login','LoginController@validateLogin');
 Route::group(['middleware' => 'auth'], function(){
     //Home
     Route::get('/','HomeController@index');
+    Route::get('/chart','HomeController@chart')->name('chart');
 
     //Patients
     Route::get('/patients','PatientController@index');

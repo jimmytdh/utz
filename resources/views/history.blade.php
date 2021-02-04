@@ -1,5 +1,5 @@
 @extends('layout.app')
-
+@section("title","History: $patient->fname $patient->mname $patient->lname")
 @section('css')
     <style>
         a:hover {
