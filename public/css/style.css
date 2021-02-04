@@ -13,3 +13,19 @@
 }
 
 .title-header { color: #c93c43 }
+
+.bg-success, .bg-success>a {
+    color: #fff!important;
+}
+.bg-warning, .bg-warning>a {
+    color: #1f2d3d!important;
+}
+.bg-info, .bg-info>a {
+    color: #fff!important;
+}
+.bg-primary, .bg-primary>a {
+    color: #fff!important;
+}
+.bg-danger, .bg-danger>a {
+    color: #fff!important;
+}

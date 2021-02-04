@@ -49,6 +49,10 @@ Route::group(['middleware' => 'auth'], function(){
 
     //Schedule
     Route::get('/schedule','ScheduleController@index');
+    Route::get('/schedule/get','ScheduleController@getSchedule')->name('get.schedule');
+    Route::post('/schedule/store','ScheduleController@store')->name('add.schedule');
+    Route::post('/schedule/update','ScheduleController@update')->name('update.schedule');
+    Route::get('/schedule/destroy/{id}','ScheduleController@destroy')->name('destroy.schedule');
 
     // x-editable
     Route::post('/patients/update/x/','PatientController@updateX')->name('update.patient');

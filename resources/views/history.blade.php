@@ -33,24 +33,26 @@
 
 
     <div class="col-md-12">
-        <table class="table table-striped">
-            <tr>
-                <th>Hospital Number</th>
-                <td>:</td>
-                <td>{{ $patient->hospital_no }}</td>
-                <th>Date of Birth</th>
-                <td>:</td>
-                <td>{{ date('M d, Y',strtotime($patient->dob)) }}</td>
-            </tr>
-            <tr>
-                <th>Patient Name</th>
-                <td>:</td>
-                <td>{{ $patient->fname }} {{ $patient->mname }} {{ $patient->lname }}</td>
-                <th>Age</th>
-                <td>:</td>
-                <td>{{ \App\Http\Controllers\ConfigController::age($patient->dob) }} y/o</td>
-            </tr>
-        </table>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <tr>
+                    <th>Hospital Number</th>
+                    <td>:</td>
+                    <td>{{ $patient->hospital_no }}</td>
+                    <th>Date of Birth</th>
+                    <td>:</td>
+                    <td>{{ date('M d, Y',strtotime($patient->dob)) }}</td>
+                </tr>
+                <tr>
+                    <th>Patient Name</th>
+                    <td>:</td>
+                    <td>{{ $patient->fname }} {{ $patient->mname }} {{ $patient->lname }}</td>
+                    <th>Age</th>
+                    <td>:</td>
+                    <td>{{ \App\Http\Controllers\ConfigController::age($patient->dob) }} y/o</td>
+                </tr>
+            </table>
+        </div>
     </div>
     <hr>
     <div class="row mb-4">

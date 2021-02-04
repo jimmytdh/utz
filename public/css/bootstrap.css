@@ -10839,7 +10839,7 @@ body {
   bottom: 0;
   width: 100%;
   padding: 0.8rem;
-  z-index: 3;
+  z-index: 99999;
 }
 
 header {

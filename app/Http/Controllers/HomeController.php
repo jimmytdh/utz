@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Admission;
 use App\Patient;
+use App\Schedule;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -34,7 +35,13 @@ class HomeController extends Controller
 
     public function countScheduled()
     {
-        return 0;
+        $start = Carbon::now()->startOfDay();
+        $end = Carbon::now()->endOfDay();
+
+        $count = Schedule::where('start_date','<=',Carbon::now())
+                    ->where('end_date','>=',Carbon::now())
+                    ->count();
+        return $count;
     }
 
     public function countYesterday()

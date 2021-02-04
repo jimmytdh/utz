@@ -8,31 +8,34 @@
 @endsection
 @section('content')
     <h2 class="title-header">Patients</h2>
-    <table id="dataTable" class="table-sm table-hover table-striped table-bordered" style="width:100%;">
-        <thead>
-        <tr>
-            <th>Admission No.</th>
-            <th>Hospital No.</th>
-            <th>Full Name</th>
-            <th>Date of Birth</th>
-            <th>Age</th>
-            <th>Action</th>
-        </tr>
-        </thead>
-        <tbody>
+    <div class="table-responsive">
+        <table id="dataTable" class="table-sm table-hover table-striped table-bordered" style="width:100%;">
+            <thead>
+            <tr>
+                <th>Admission No.</th>
+                <th>Hospital No.</th>
+                <th>Full Name</th>
+                <th>Date of Birth</th>
+                <th>Age</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
 
-        </tbody>
-        <tfoot>
-        <tr>
-            <th>Admission No.</th>
-            <th>Hospital No.</th>
-            <th>Full Name</th>
-            <th>Date of Birth</th>
-            <th>Age</th>
-            <th>Action</th>
-        </tr>
-        </tfoot>
-    </table>
+            </tbody>
+            <tfoot>
+            <tr>
+                <th>Admission No.</th>
+                <th>Hospital No.</th>
+                <th>Full Name</th>
+                <th>Date of Birth</th>
+                <th>Age</th>
+                <th>Action</th>
+            </tr>
+            </tfoot>
+        </table>
+    </div>
+
 @endsection
 
 @section('modal')
@@ -108,6 +111,53 @@
             </div>
         </div>
     </div>
+
+    <div class="modal" tabindex="-1" role="dialog" id="formCalendar">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-danger">
+                    <h5 class="modal-title">Schedule Patient:</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="{{ url('/schedule/store') }}" method="post" id="scheduleForm">
+                    {{ csrf_field() }}
+                    <input type="hidden" name="id" id="patient_id">
+                    <input type="hidden" name="name" id="patient_name" class="patient_name">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>Patient Name:</label><br>
+                            <span class="patient_name font-weight-bold text-danger">---</span>
+                        </div>
+                        <div class="form-group">
+                            <label>Select Date:</label>
+                            <input type="date" class="form-control" name="date" value="{{ date("Y-m-d") }}" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Select Time:</label>
+                            <input type="time" class="form-control" name="time" value="09:00:00" required>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-danger" id="scheduleBtn">Submit</button>
+                    </div>
+                </form>
+                <div class="loading" style="display: none;">
+                    <div class="text-center saving p-3">
+                        <h3><i class="fa fa-spin fa-spinner"></i> Please wait...</h3>
+                    </div>
+                    <div class="success p-3" style="display: none;">
+                        <h3 class="text-center">Successfully Added!</h3>
+                        <div class="col-sm-12 text-center">
+                            <img width="70px" src="{{ url("/images/check.png") }}" class="fit-image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
 
 @section('js')
@@ -144,7 +194,41 @@
                     }
                 ]
             });
+
+            $("#scheduleForm").on("submit",function (e) {
+                e.preventDefault();
+                var url = $(this).attr('action');
+                var formData = new FormData(this);
+                $("#scheduleForm").css('display','none');
+                $(".loading").css('display','block');
+                $.ajax({
+                    url: url,
+                    type: 'POST',
+                    data: formData,
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    success: (data) => {
+                        setTimeout(function(){
+                            $(".saving").css('display','none');
+                            $(".success").css('display','block');
+                            setTimeout(function(){
+                                $("#formCalendar").modal('hide');
+                            },1000);
+                        },1500);
+                    },
+                    error: function(data){
+                        console.log(data);
+                    }
+                });
+            });
         });
+
+        $("#formCalendar").on("hidden.bs.modal", function () {
+            $("#scheduleForm").css('display','block');
+            $(".loading").css('display','none');
+        });
+
 
         function editFunc(id) {
             $.ajax({
@@ -216,6 +300,12 @@
             $('#linkEarlyPregnancy').attr('href',"{{ url('/patient/earlypregnancy/') }}/"+id);
             $('#linkSonographicFindings').attr('href',"{{ url('/patient/sonographicfindings/') }}/"+id);
             $('#linkSecondThirdTrimester').attr('href',"{{ url('/patient/trimester/') }}/"+id);
+        });
+
+        $(document).on('click','#btnSchedule',function(){
+            $('#patient_name').val($(this).data('name'));
+            $('.patient_name').html($(this).data('name'));
+            $('#patient_id').val($(this).data('id'));
         });
     </script>
 @endsection
