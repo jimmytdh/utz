@@ -286,6 +286,7 @@
                         var title = $('#modalTitle').html();
                         if(title === 'Add Patient'){
                             $('#patientForm')[0].reset();
+                            $('#patientModal').modal('hide');
                         }
                     },1000);
                 },

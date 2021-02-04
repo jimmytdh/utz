@@ -21,7 +21,7 @@
             <div class="small-box bg-aqua">
                 <div class="inner">
                     <h3 id="scheduled">0</h3>
-                    <p>Scheduled<br>Patients</p>
+                    <p>Scheduled<br>Today</p>
                 </div>
                 <div class="icon">
                     <i class="fa fa-calendar"></i>

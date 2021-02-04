@@ -65,6 +65,7 @@ class ScheduleController extends Controller
         if(!$req->end){
             $end = Carbon::parse($start)->endOfDay();
         }
+
         $data = array(
             'title' => $req->title,
             'start_date' => $start,

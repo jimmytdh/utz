@@ -61,6 +61,12 @@ Route::group(['middleware' => 'auth'], function(){
     Route::post('/sonographics/update/x/','SonographicController@updateX')->name('update.sonographics');
     Route::post('/trimester/update/x/','TrimesterController@updateX')->name('update.trimester');
 
+    //settings
+    Route::get('/settings/doctors','DoctorController@index');
+    Route::post('/settings/doctors/store','DoctorController@store')->name('add.doctor');
+    Route::post('/settings/doctors/update','DoctorController@update')->name('update.doctor');
+    Route::post('/settings/doctors/destroy','DoctorController@destroy')->name('destroy.doctor');
+
     //Configs
     Route::get('/greetings','ConfigController@greetings');
 });

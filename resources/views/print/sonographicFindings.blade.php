@@ -50,13 +50,11 @@
             padding: 10px;
         }
         .footer {
-            position: absolute;
-            text-transform: none;
-            bottom: 10px;
+            text-transform: none;    
             font-size: 11px;
             color: #8c8c8c;
-            left: 130px;
-            visibility: hidden;
+            text-align: center;
+            margin-top: 30px;
         }
         .logo {
             width: 80px;

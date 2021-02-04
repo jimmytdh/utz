@@ -18,5 +18,22 @@ class UserSeeder extends Seeder
                 'password' => Hash::make('admin'),
                 'designation' => 'Administrator'
             ]);
+
+        DB::table('users')
+            ->insert([
+                'name' => 'Yenn Kwek',
+                'username' => 'yenn',
+                'password' => Hash::make('123'),
+                'designation' => 'Standard'
+            ]);
+
+        DB::table('patients')
+            ->insert([
+                'hospital_no' => '00003',
+                'fname' => 'Jane',
+                'mname' => 'Dela',
+                'lname' => 'Cruz',
+                'dob' => '1999-03-05'
+            ]);
     }
 }

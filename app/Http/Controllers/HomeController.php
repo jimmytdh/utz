@@ -26,7 +26,7 @@ class HomeController extends Controller
         return array(
             'scheduled' => self::countScheduled(),
             'yesterday' => self::countYesterday(),
-            'month' => self::countToday(),
+            'today' => self::countToday(),
             'minor' => self::countMinor(),
             'area' => self::transactionChart(),
             'donut' => self::categoricalChart()
@@ -38,9 +38,16 @@ class HomeController extends Controller
         $start = Carbon::now()->startOfDay();
         $end = Carbon::now()->endOfDay();
 
-        $count = Schedule::where('start_date','>=',Carbon::now()->startOfDay())
-                    ->where('end_date','<=',Carbon::now()->endOfDay())
-                    ->count();
+        $from = min($start,$end);
+        $till = max($start,$end);
+
+        $count = Schedule::where(function($q) use($from,$till){
+                            $q->whereBetween('start_date',[$from,$till]);
+                        })
+                        ->orwhere(function($q) use($from,$till){
+                            $q->whereBetween('end_date',[$from,$till]);
+                        })
+                        ->count();
         return $count;
     }
 
