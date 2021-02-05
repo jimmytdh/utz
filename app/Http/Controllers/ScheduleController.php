@@ -65,7 +65,10 @@ class ScheduleController extends Controller
         if(!$req->end){
             $end = Carbon::parse($start)->endOfDay();
         }
-
+        $checkEndTime = Carbon::parse($end)->format('H:i:s');
+        if($checkEndTime=='00:00:00'){
+            $end = Carbon::parse($end)->addSecond(-1)->format('Y-m-d H:i:s');
+        }
         $data = array(
             'title' => $req->title,
             'start_date' => $start,
