@@ -47,7 +47,7 @@ class ScheduleController extends Controller
                 'id' => $s->id,
                 'title' => $s->title,
                 'start' => Carbon::parse($s->start_date)->format('Y-m-d H:i:s'),
-                'end' => Carbon::parse($s->end_date)->format('Y-m-d H:i:s'),
+                'end' => Carbon::parse($s->end_date)->addSecond(1)->format('Y-m-d H:i:s'),
                 'allDay' => ($s->allDay==1) ? true : false,
                 'backgroundColor' => $s->color,
                 'borderColor' => $s->color
