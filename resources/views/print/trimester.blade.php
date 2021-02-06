@@ -291,10 +291,13 @@
                         </tr>
                     </table>
                     <br>
-                    <span><strong>Total: </strong></span>
+                    <?php
+                        $total = $tri->nst + $tri->amniotic + $tri->body_movement + $tri->fetal_tone + $tri->fetal_breathing;
+                    ?>
+                    <span><strong>Total: </strong></span> &nbsp;&nbsp;&nbsp;<span id="total">{{ $total }}</span>
                     <br>
                     <br>
-                    <span><strong>doppler velocimetry: </strong></span>
+                    <span><strong>doppler velocimetry: </strong></span>&nbsp;&nbsp;&nbsp;<span class="edit" data-name="doppler_velocimetry" data-title="Doppler Velocimetry">{{ $tri->doppler_velocimetry }}</span>
                     <br>
                     <br>
                     <strong>Other Findings</strong>
@@ -485,6 +488,7 @@
 
     $("input:radio").on('click', function() {
         // in the handler, 'this' refers to the box clicked on
+        total();
         var box = $(this);
         var table = box.data('table');
         if (box.is(":checked")) {
@@ -503,6 +507,17 @@
             box.prop("checked", false);
         }
     });
+
+    function total()
+    {
+        var total = 0;
+        $("input:radio:checked").each(function(){
+            var box =$(this);
+
+            total = total + parseInt(box.val());
+        });
+        $('#total').html(total);
+    }
 </script>
 </body>
 
