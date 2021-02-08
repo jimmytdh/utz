@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Admission;
 use App\Patient;
 use App\Schedule;
+use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -18,7 +19,6 @@ class HomeController extends Controller
 
     public function index()
     {
-
         return view('home');
     }
 

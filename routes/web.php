@@ -67,6 +67,10 @@ Route::group(['middleware' => 'auth'], function(){
     Route::post('/settings/doctors/update','DoctorController@update')->name('update.doctor');
     Route::post('/settings/doctors/destroy','DoctorController@destroy')->name('destroy.doctor');
 
+    //users
+    Route::get('/settings/users','UserController@index');
+    Route::post('/settings/users/update','UserController@udpate')->name('update.level');
+
     //Configs
     Route::get('/greetings','ConfigController@greetings');
 });

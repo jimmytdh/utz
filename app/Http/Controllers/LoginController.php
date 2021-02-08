@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\UserPriv;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class LoginController extends Controller
 {
@@ -16,7 +18,16 @@ class LoginController extends Controller
     {
         $remember = true;
         if (Auth::attempt(['username' => $req->username, 'password' => $req->password], $remember)) {
-            return redirect()->intended('/');
+            $id = Auth::id();
+            $user = Auth::user();
+            $check = UserPriv::where("user_id",$id)
+                ->where("syscode","utz")
+                ->first();
+            if($check){
+                Session::put('level',$check->level);
+                return redirect()->intended('/');
+            }
+            return redirect()->back()->with('error', 'failed');
         }
         return redirect()->back()->with('error', 'failed');
     }

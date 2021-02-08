@@ -14,7 +14,7 @@
     <div id="loader-wrapper" style="visibility: visible;">
         <div id="loader"></div>
     </div>
-    <h2 class="title-header">Hi {{ Auth::user()->name }}, <small class="text-muted">{{ \App\Http\Controllers\ConfigController::greetings() }}!</small></h2>
+    <h2 class="title-header">Hi {{ Auth::user()->fname }}, <small class="text-muted">{{ \App\Http\Controllers\ConfigController::greetings() }}!</small></h2>
     <div class="row">
         <div class="col-lg-3 col-xs-6">
             <!-- small box -->
