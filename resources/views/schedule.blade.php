@@ -24,8 +24,8 @@
         <div class="col-md-3">
             <div class="sticky-top mb-3">
                 <div class="card">
-                    <div class="card-header">
-                        <h4 class="card-title">Draggable Events</h4>
+                    <div class="card-header bg-primary">
+                        <h3 class="card-title">Draggable Events</h3>
                     </div>
                     <div class="card-body">
                         <!-- the events -->
@@ -46,8 +46,8 @@
                     <!-- /.card-body -->
                 </div>
                 <!-- /.card -->
-                <div class="card">
-                    <div class="card-header">
+                <div class="card mt-3">
+                    <div class="card-header bg-primary">
                         <h3 class="card-title">Create Event</h3>
                     </div>
                     <div class="card-body">
