@@ -27,6 +27,7 @@ class LoginController extends Controller
                 Session::put('level',$check->level);
                 return redirect()->intended('/');
             }
+            Auth::logout();
             return redirect()->back()->with('error', 'failed');
         }
         return redirect()->back()->with('error', 'failed');
