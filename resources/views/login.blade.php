@@ -30,7 +30,7 @@
                     </div>
 
                     <h5 class="card-title text-center">
-                        <span class="font-weight-bold">Ultrasound Information and Scheduling System</span>
+                        <span class="font-weight-bold">Ultrasound Information<br>and Scheduling System</span>
                         <br>
                         <small class="text-muted">
                             Sign in to start your session

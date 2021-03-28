@@ -19,6 +19,7 @@ class EarlyPregnancy extends Model
         'number',
         'well_formed',
         'heart_motion',
+        'heart_motion_desc',
         'body_movement',
         'crl',
         'gestational_age',

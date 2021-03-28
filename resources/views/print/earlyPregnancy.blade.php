@@ -84,6 +84,9 @@
             .buttons {
                 display: none;
             }
+            .no_underline {
+                border: none !important;
+            }
         }
     </style>
 </head>
@@ -326,6 +329,8 @@
                     <label>
                         <input type="checkbox" name="heart_motion" data-table="early" value="Y" @if($early->heart_motion=='Y') checked @endif> yes
                     </label>
+                    &nbsp;&nbsp;&nbsp;
+                    <span id="heart_motion_desc" data-title="Enter BPM">{{ $early->heart_motion_desc }}</span>
                 </td>
                 <td>
                     <label>
@@ -367,20 +372,20 @@
             </tr>
             <tr>
                 <td width="15%"></td>
-                <td width="15%">right ovary: </td>
-                <td><span class="earlyEdit" data-name="right_ovary" data-title="Findings Right Ovary">{{ $early->right_ovary }}</span></td>
+                <td width="15%" style="vertical-align: top;">right ovary: </td>
+                <td><span id="right_ovary" class="no_underline" data-name="right_ovary" data-title="Findings Right Ovary">{{ $early->right_ovary }}</span></td>
             </tr>
             <tr>
                 <td width="15%"></td>
-                <td width="15%">left ovary: </td>
-                <td><span class="earlyEdit" data-name="left_ovary" data-title="Findings Left Ovary">{{ $early->left_ovary }}</span></td>
+                <td width="15%" style="vertical-align: top;">left ovary: </td>
+                <td><span id="left_ovary" class="no_underline" data-name="left_ovary" data-title="Findings Left Ovary">{{ $early->left_ovary }}</span></td>
             </tr>
         </table>
         <br>
         <br>
         remarks:
         <div class="remarks" style="text-transform: none;">
-            <span id="remarks" data-title="Remarks">{{ $early->remarks }}</span>
+            <span id="remarks" data-title="Remarks" class="no_underline">{{ $early->remarks }}</span>
         </div>
         <div class="sign">
             <?php

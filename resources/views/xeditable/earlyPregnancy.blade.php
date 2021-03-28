@@ -2,13 +2,13 @@
     var earlyUrl = "{{ route('update.earlyPregnancy') }}";
     var earlyID = "{{ $early->id }}";
 
-    $('#yolk_sac, #subchrionic, #number, #crl, .earlyEdit').editable({
+    $('#yolk_sac, #subchrionic, #number, #crl, #heart_motion_desc, .earlyEdit').editable({
         url: earlyUrl,
         pk: earlyID,
         type: 'text',
         emptytext: 'N/A'
     });
-    $('#remarks').editable({
+    $('#remarks, #left_ovary, #right_ovary').editable({
         url: earlyUrl,
         pk: earlyID,
         type: 'textarea',
