@@ -29,7 +29,8 @@ class HistoryController extends Controller
         $view = null;
         if($admission_type=='early_pregnancy'){
             $early = EarlyPregnancy::where('admission_id',$admission_id)->first();
-            return view('print.earlyPregnancy',compact('patient','adm','early','doctors'));
+            return view('form.early',compact('patient','adm','early','doctors'));
+            //return view('print.earlyPregnancy',compact('patient','adm','early','doctors'));
         }else if($admission_type=='sonographics'){
             $sono = Sonographic::where('admission_id',$admission_id)->first();
             return view('print.sonographicFindings',compact('patient','adm','sono','doctors'));
@@ -37,7 +38,6 @@ class HistoryController extends Controller
             $tri = Trimester::where('admission_id',$admission_id)->first();
             return view('print.trimester',compact('patient','adm','tri','doctors'));
         }
-
 
     }
 }
