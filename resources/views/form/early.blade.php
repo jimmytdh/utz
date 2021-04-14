@@ -93,7 +93,7 @@
 {{--                    </div>--}}
                 </div>
                 <div id="formSection" class="">
-                    <h3 class="title-header">EARLY PREGNANCY WORKSHEET</h3>
+                    <h3 class="title-header">Early Pregnancy Worksheet</h3>
                     <div class="form-row">
                         <div class="form-group col-sm-6">
                             <label>Scan</label>
