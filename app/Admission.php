@@ -18,6 +18,7 @@ class Admission extends Model
         'gp_code',
         'lmp',
         'pmp',
+        'edc',
         'menstrual_age',
         'sheet',
     ];

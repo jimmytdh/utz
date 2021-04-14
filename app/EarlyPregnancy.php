@@ -23,6 +23,7 @@ class EarlyPregnancy extends Model
         'body_movement',
         'crl',
         'gestational_age',
+        'other_findings',
         'right_ovary',
         'left_ovary',
         'remarks',

@@ -46,6 +46,12 @@ Route::group(['middleware' => 'auth'], function(){
     //history
     Route::get('/patient/history/{id}','HistoryController@index');
     Route::get('/patient/history/{id}/{admission_id}/{admission_type}','HistoryController@show');
+    Route::post('/patient/history/{id}/{admission_id}/{admission_type}','HistoryController@update');
+
+    //print
+    Route::get('/print/earlyPregnancy/{admission_id}','PrintController@earlyPregnancy');
+    Route::get('/print/sonographic/{admission_id}','PrintController@sonographic');
+    Route::get('/print/trimester/{admission_id}','PrintController@trimester');
 
     //Schedule
     Route::get('/schedule','ScheduleController@index');

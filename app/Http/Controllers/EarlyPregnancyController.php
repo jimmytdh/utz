@@ -89,13 +89,14 @@ class EarlyPregnancyController extends Controller
             'body_movement' => '',
             'crl' => '',
             'gestational_age' => '',
-            'right_ovary' => '2.59 x 2.40 x 1.25 cm (Vol: 4.06 cc), Lateral; Normal ovarian echopattern',
-            'left_ovary' => '2.97 x 2.35 x 1.52 cm (Vol: 5.56 cc), Lateral; Normal ovarian echopattern with corpus lutuem measuring 0.99 x 1.50 x 2.01 cm (Vol: 1.56 cc).
-Cervical length is long and closed measuring 3.35 cm.
-Uterus is Anteverted, no masses.',
-            'remarks' => 'SINGLE LIVE INTRAUTERINE PREGNANCY COMPATIBLE TO 9 WEEKS 3 DAYS AGE OF GESTATION BY CROWN RUMP LENGTH WITH GOOD CARDIAC ACTIVIY
-NO SUBCHORIONIC HEMORRAGE
-NORMAL OVARIES WITH CORPLUS LUTEUM ON THE LEFT',
+            'other_findings' =>'Uterus is anteverted, no masses
+Cervix measures ___, long and closed
+
+Right ovary measures ___cm (vol: ___cc), normal ovarian echopattern. No adnexal mass.
+Left ovary measures ___cm (vol: ___cc), normal ovarian echopattern. No adnexal mass.',
+            'remarks' => 'Single live intrauterine pregnancy compatible to ___ age of gestation by crown rump length with good cardiac activity
+No subchorionic hemorrage
+Normal ovaries with corplus luteum on the left',
             'ob_doctor' => 0
         );
 

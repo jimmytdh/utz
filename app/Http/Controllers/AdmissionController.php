@@ -25,6 +25,7 @@ class AdmissionController extends Controller
             'gp_code' => '0-0-0-0',
             'lmp' => '',
             'pmp' => '',
+            'edc' => '',
             'menstrual_age' => '',
             'sheet' => $sheet
         );
