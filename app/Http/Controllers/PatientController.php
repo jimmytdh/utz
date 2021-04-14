@@ -20,8 +20,14 @@ class PatientController extends Controller
             $patients = Patient::select('id','hospital_no','fname','mname','lname','dob','created_at')->get();
             return datatables()->of($patients)
                 ->addColumn('full_name', function($row){
-                    $mname = $row->mname[0];
-                    return "$row->fname $mname. $row->lname";
+                    $mname = null;
+                    if($row->mname == null || $row->mname=='NA' || $row->mname=='N/a' || $row->mname=='None' || $row->mname=='-'){
+                        $mname = null;
+                    }else{
+                        $mname = $row->mname[0].".";
+                    }
+
+                    return "$row->fname $mname $row->lname";
                 })
                 ->addColumn('dob', function($row){
                     return date('M d, Y',strtotime($row->dob));
