@@ -116,9 +116,8 @@
                 <td colspan="2">Admission No.: <span>{{ date('Y') }}-{{ str_pad($adm->id,4,0,STR_PAD_LEFT) }}</span></td>
             </tr>
             <tr>
-                <td>Patient Name:<span>{{ $patient->fname }} {{ $patient->mname }} {{ $patient->lname }}</span></td>
-                <td>Age: <span>{{ \App\Http\Controllers\ConfigController::age($patient->dob) }}</span></td>
-                <td>Date of Birth: <span>{{ date('M d, Y',strtotime($patient->dob)) }}</span></td>
+                <td colspan="2">Patient Name:<span>{{ $patient->fname }} {{ $patient->mname }} {{ $patient->lname }}</span></td>
+                <td>Age: <span>{{ \App\Http\Controllers\ConfigController::age($patient->dob) }}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Date of Birth: <span>{{ date('M d, Y',strtotime($patient->dob)) }}</span></td>
             </tr>
             <tr>
                 <?php
