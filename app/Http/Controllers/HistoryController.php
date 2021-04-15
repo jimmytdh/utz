@@ -72,9 +72,12 @@ class HistoryController extends Controller
             $row['lower_extremities'] = 'N';
             $row['atypical_finds'] = 'N';
 
-            foreach($row['fatal_anatomic'] as $key){
-                $row[$key] = 'Y';
+            if(isset($row['fatal_anatomic'])){
+                foreach($row['fatal_anatomic'] as $key){
+                    $row[$key] = 'Y';
+                }
             }
+
             Trimester::where('admission_id',$admission_id)->first()->update($row);
         }
 
