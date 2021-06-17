@@ -82,6 +82,8 @@
                                 <option @if($sono->scan=='Transvaginal') selected @endif>Transvaginal</option>
                                 <option @if($sono->scan=='SIS') selected @endif>SIS</option>
                                 <option @if($sono->scan=='Transabdominal') selected @endif>Transabdominal</option>
+                                <option @if($sono->scan=='Transrectal + Transabdominal') selected @endif>Transrectal + Transabdominal</option>
+                                <option @if($sono->scan=='Transvaginal + Transabdominal') selected @endif>Transvaginal + Transabdominal</option>
                             </select>
                         </div>
                         <div class="form-group col-sm-6">

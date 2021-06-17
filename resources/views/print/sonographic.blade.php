@@ -168,7 +168,26 @@
                 </td>
             </tr>
             <tr>
+                <td width="15%">&nbsp;</td>
+                <td colspan="2">
+                    <label>
+                        <input type="checkbox" @if($sono->scan=='Transrectal + Transabdominal') checked @endif> Transrectal + Transabdominal
+                    </label>
+                </td>
+                <td colspan="2">
+                    <label>
+                        <input type="checkbox" @if($sono->scan=='Transvaginal + Transabdominal') checked @endif> Transvaginal + Transabdominal
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="5">&nbsp;</td>
+            </tr>
+            <tr>
                 <td colspan="5">Cervix: <span>{{ $sono->cervix }}</span></td>
+            </tr>
+            <tr>
+                <td colspan="5">&nbsp;</td>
             </tr>
             <tr>
                 <td colspan="5">Uterine Corpus: <span>{{ $sono->uterine }}</span></td>
