@@ -26,15 +26,17 @@ class SonographicController extends Controller
         $sonographic = array(
             'admission_id' => $admID,
             'scan' => null,
-            'cervix' => null,
-            'uterine' => null,
-            'endometrium' => null,
-            'right_ovary' => null,
-            'right_follicles' => null,
-            'left_ovary' => null,
-            'left_follicles' => null,
+            'cervix' => 'No lesions',
+            'uterine' => 'Anteverted, symmetric, regular, homogenous, non vascular, intact endometrial - myometrial junction',
+            'endometrium' => 'Non uniform: heterogenous with few cystic spaces, midline not defined, intact endometrial - myometrial junction, isoechoec intracavitary fluid, no flow on color mapping.',
+            'right_ovary' => '',
+            'right_follicles' => 'Normal ovarian echopattern with corpus luteum measuring ',
+            'left_ovary' => '',
+            'left_follicles' => 'Normal ovarian echopattern. No adnexal mass.',
             'findings' => null,
-            'remarks' => null,
+            'remarks' => 'NORMAL SIZED ANTEVERTED UTERUS
+ENDOMETRIUM COMPATIBLE WITH SECRETORY PHASE
+NORMAL OVARIES WITH CORPUS LUTEUM ON THE RIGHT',
             'ob_doctor' => 0
         );
 

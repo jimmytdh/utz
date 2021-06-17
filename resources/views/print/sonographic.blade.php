@@ -174,6 +174,9 @@
                 <td colspan="5">Uterine Corpus: <span>{{ $sono->uterine }}</span></td>
             </tr>
             <tr>
+                <td colspan="5">&nbsp;</td>
+            </tr>
+            <tr>
                 <td colspan="5">Endometrium: <span>{{ $sono->endometrium }}</span></td>
             </tr>
             <tr>
@@ -188,7 +191,7 @@
             </tr>
             <tr>
                 <td></td>
-                <td style="text-align: right;font-style: italic">Follicles:</td>
+                <td style="text-align: right;font-style: italic">Others:</td>
                 <td colspan="3"><span>{{ $sono->right_follicles }}</span></td>
             </tr>
             <tr>
@@ -197,7 +200,7 @@
             </tr>
             <tr>
                 <td></td>
-                <td style="text-align: right;font-style: italic">Follicles:</td>
+                <td style="text-align: right;font-style: italic">Others:</td>
                 <td colspan="3"><span>{{ $sono->left_follicles }}</span></td>
             </tr>
         </table>

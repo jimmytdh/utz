@@ -92,11 +92,13 @@
                     <div class="form-row">
                         <div class="form-group col-sm-6">
                             <label>Uterine</label>
-                            <input type="text" name="uterine" class="form-control" value="{{ $sono->uterine }}" />
+{{--                            <input type="text" name="uterine" class="form-control" value="{{ $sono->uterine }}" />--}}
+                            <textarea class="form-control" rows="6" style="resize: none;"  name="uterine">{!! $sono->uterine !!}</textarea>
                         </div>
                         <div class="form-group col-sm-6">
                             <label>Endometrium</label>
-                            <input type="text" name="endometrium" class="form-control" value="{{ $sono->endometrium }}" />
+{{--                            <input type="text" name="endometrium" class="form-control" value="{{ $sono->endometrium }}" />--}}
+                            <textarea class="form-control" rows="6" style="resize: none;"  name="endometrium">{!! $sono->endometrium !!}</textarea>
                         </div>
                     </div>
 
@@ -106,7 +108,7 @@
                             <input type="text" name="right_ovary" class="form-control" value="{{ $sono->right_ovary }}" />
                         </div>
                         <div class="form-group col-sm-6">
-                            <label><em>Follicles</em></label>
+                            <label><em>Others</em></label>
                             <input type="text" name="right_follicles" class="form-control" value="{{ $sono->right_follicles }}" />
                         </div>
                     </div>
@@ -117,7 +119,7 @@
                             <input type="text" name="left_ovary" class="form-control" value="{{ $sono->left_ovary }}" />
                         </div>
                         <div class="form-group col-sm-6">
-                            <label><em>Follicles</em></label>
+                            <label><em>Others</em></label>
                             <input type="text" name="left_follicles" class="form-control" value="{{ $sono->left_follicles }}" />
                         </div>
                     </div>
