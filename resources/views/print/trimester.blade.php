@@ -263,7 +263,7 @@
                     <span><strong>Total: </strong></span> &nbsp;&nbsp;&nbsp;<span id="total">{{ $total }}</span>
                 </td>
                 <td>
-                    <span>Fatal Anatomic Survey:</span>
+                    <span>Fetal Anatomic Survey:</span>
                     <br>
                     <ul style="list-style: none">
                         <li>

@@ -227,7 +227,7 @@
                             </table>
                         </div>
                         <div class="form-group col-6">
-                            <label>Fatal Anatomic Survey:</label>
+                            <label>Fetal Anatomic Survey:</label>
                             <select multiple name="fatal_anatomic[]" class="custom-select" id="fatal_anatomic" size="7">
                                 <option @if($tri->cerebral=='Y') selected @endif value="cerebral">Cerebral Bentricles</option>
                                 <option @if($tri->cranium=='Y') selected @endif value="cranium">Cranium</option>
